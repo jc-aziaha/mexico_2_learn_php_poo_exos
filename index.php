@@ -1,107 +1,97 @@
 <?php
 
-    class Person
-    {
-        protected string $firstName;
-        protected string $lastName;
-        protected string $favoriteMeal;
 
-        public function __construct(string $firstName, string $lastName, string $favoriteMeal)
+    // -----------------------------------------Exercice 2---------------------------------------- 
+        interface Vehicule
         {
-            $this->firstName    = $firstName;
-            $this->lastName     = $lastName;
-            $this->favoriteMeal = $favoriteMeal;
+            public function demarrer(): string;
+
+            public function arreter(): string;
         }
 
-        public function getFirstName(): string
+        class Voiture implements Vehicule
         {
-            return $this->firstName;
+            public function demarrer(): string
+            {
+                return "La voiture démarre.";
+            }
+
+            public function arreter(): string
+            {
+                return "La voiture s'arrête.";
+            }
         }
 
-        public function setFirstName(string $firstName): void
+        class Moto implements Vehicule
         {
-            $this->firstName = $firstName;
+            public function demarrer(): string
+            {
+                return "La moto démarre.";
+            }
+            
+            public function arreter(): string
+            {
+                return "La moto s'arrête.";
+            }
         }
 
-        public function getLastName(): string
-        {
-            return $this->lastName;
-        }
+        $voiture = new Voiture();
+        $moto    = new Moto();
 
-        public function setLastName(string $lastName): void
-        {
-            $this->lastName = $lastName;
-        }
-
-        public function getFavoriteMeal(): string
-        {
-            return $this->favoriteMeal;
-        }
-
-        public function setFavoriteMeal(string $favoriteMeal): void
-        {
-            $this->favoriteMeal = $favoriteMeal;
-        }
-
-        public function presentation(): string
-        {
-            return "Je m'appelle {$this->firstName} {$this->lastName} et j'adore {$this->favoriteMeal}.<br/>";
-        }
-    }
-
-    class Employee extends Person
-    {
-        protected int|float $salary;
-
-        public function __construct(string $firstName, string $lastName, string $favoriteMeal, int|float $salary)
-        {
-            $this->firstName    = $firstName;
-            $this->lastName     = $lastName;
-            $this->favoriteMeal = $favoriteMeal;
-            $this->salary       = $salary;
-            // parent::__construct($firstName, $lastName, $favoriteMeal);
-        }
-
-        public function increaseSalary(int|float $percentage): void
-        {
-            $this->salary = $this->salary * (1 + $percentage / 100);
-        }
-
-        public function getSalary(): int|float
-        {
-            return $this->salary;
-        }
-
-        public function setSalary(int|float $salary): void
-        {
-            $this->salary = $salary;
-        }
-    }
-
-    $employee1 = new Employee("Keanu", "Reeves", "de la pizza", 100000);
-    $employee1->setSalary(1000000);
-    $employee1->increaseSalary(20);
-
-    echo $employee1->getSalary();
+        echo $voiture->demarrer();
+        echo "<br/>";
+        echo $moto->arreter();
 
 
 
 
 
 
-    // $person1 = new Person("Harry", "Potter", "de la pizza");
-    // $person2 = new Person("James", "Bond", "des sushi");
 
-    // echo $person1->presentation();
-    // echo $person2->presentation();
+    // -----------------------------------------Exercice 1---------------------------------------- 
+    // abstract class Forme
+    // {
+    //     abstract public function calculerSurface(): int|float;
+    // }
 
-    // $person1->setFavoriteMeal("du couscous");
-    // $person2->setFavoriteMeal("la raclette");
+    // class Cercle extends Forme
+    // {
+    //     public int|float $rayon;
 
-    // echo "-------------------Après changement----------------------<br/>";
+    //     public function __construct(int|float $rayon)
+    //     {
+    //         $this->rayon = $rayon;
+    //     }
 
-    // echo $person1->presentation();
-    // echo $person2->presentation();
+    //     public function calculerSurface(): int|float
+    //     {
+    //         // return 3.14 * ($this->rayon * $this->rayon);
+    //         return pi() * pow($this->rayon, 2); 
+    //     }
+    // }
 
+    // class Rectangle extends Forme
+    // {
 
+    //     private int|float $longueur;
+    //     private int|float $largeur;
 
+    //     public function __construct(int|float $longueur, int|float $largeur)
+    //     {
+    //         $this->longueur = $longueur;
+    //         $this->largeur  = $largeur;
+    //     }
+
+    //     public function calculerSurface(): int|float
+    //     {
+    //         return $this->longueur * $this->largeur;
+    //     }
+    // }
+
+    // $cercle = new Cercle(2);
+    // echo $cercle->calculerSurface();
+
+    // echo "<br/>";
+
+    // $rectangle = new Rectangle(4, 10);
+    // echo $rectangle->calculerSurface();
