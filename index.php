@@ -1,46 +1,85 @@
 <?php
 
 
-    // -----------------------------------------Exercice 2---------------------------------------- 
-        interface Vehicule
+    // -----------------------------------------Exercice 3---------------------------------------- 
+        interface Nageur
         {
-            public function demarrer(): string;
-
-            public function arreter(): string;
+            public function nager(): string;
         }
 
-        class Voiture implements Vehicule
+        interface Voleur
         {
-            public function demarrer(): string
-            {
-                return "La voiture démarre.";
-            }
-
-            public function arreter(): string
-            {
-                return "La voiture s'arrête.";
-            }
+            public function voler(): string;
         }
 
-        class Moto implements Vehicule
+        class SuperHero implements Nageur, Voleur
         {
-            public function demarrer(): string
+            public function nager(): string
             {
-                return "La moto démarre.";
+                return "Je sais nager.";
             }
             
-            public function arreter(): string
+            public function voler(): string
             {
-                return "La moto s'arrête.";
+                return "Je sais voler.";
             }
         }
 
-        $voiture = new Voiture();
-        $moto    = new Moto();
 
-        echo $voiture->demarrer();
+        $superMan  = new SuperHero();
+        $superGirl = new SuperHero();
+        
+
+        echo $superMan->nager();
         echo "<br/>";
-        echo $moto->arreter();
+        echo $superGirl->voler();
+
+
+
+
+
+
+
+    // -----------------------------------------Exercice 2---------------------------------------- 
+        // interface Vehicule
+        // {
+        //     public function demarrer(): string;
+
+        //     public function arreter(): string;
+        // }
+
+        // class Voiture implements Vehicule
+        // {
+        //     public function demarrer(): string
+        //     {
+        //         return "La voiture démarre.";
+        //     }
+
+        //     public function arreter(): string
+        //     {
+        //         return "La voiture s'arrête.";
+        //     }
+        // }
+
+        // class Moto implements Vehicule
+        // {
+        //     public function demarrer(): string
+        //     {
+        //         return "La moto démarre.";
+        //     }
+            
+        //     public function arreter(): string
+        //     {
+        //         return "La moto s'arrête.";
+        //     }
+        // }
+
+        // $voiture = new Voiture();
+        // $moto    = new Moto();
+
+        // echo $voiture->demarrer();
+        // echo "<br/>";
+        // echo $moto->arreter();
 
 
 
