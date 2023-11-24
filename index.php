@@ -1,38 +1,77 @@
 <?php
 
 
+    // -----------------------------------------Exercice 4----------------------------------------
+    
+        interface Animal
+        {
+            public function crier(): string;
+        }
+
+        class Chien implements Animal
+        {
+            public function crier(): string
+            {
+                return "Ouaff Ouaff!";
+            }
+        }
+
+        class Chat implements Animal
+        {
+            public function crier(): string
+            {
+                return "Miaou Miaou!";
+            }
+        }
+
+        function faireCrier(Animal $animal): string
+        {
+            return $animal->crier();
+        }
+
+
+        $chien = new Chien();
+        $chat  = new Chat();
+
+        echo faireCrier($chien);
+        echo "<br/>";
+        echo faireCrier($chat);
+
+
+
+
     // -----------------------------------------Exercice 3---------------------------------------- 
-        interface Nageur
-        {
-            public function nager(): string;
-        }
+        // interface Nageur
+        // {
+        //     public function nager(): string;
+        // }
 
-        interface Voleur
-        {
-            public function voler(): string;
-        }
+        // interface Voleur
+        // {
+        //     public function voler(): string;
+        // }
 
-        class SuperHero implements Nageur, Voleur
-        {
-            public function nager(): string
-            {
-                return "Je sais nager.";
-            }
+        // class SuperHero implements Nageur, Voleur
+        // {
+        //     public function nager(): string
+        //     {
+        //         return "Je sais nager.";
+        //     }
             
-            public function voler(): string
-            {
-                return "Je sais voler.";
-            }
-        }
+        //     public function voler(): string
+        //     {
+        //         return "Je sais voler.";
+        //     }
+        // }
 
 
-        $superMan  = new SuperHero();
-        $superGirl = new SuperHero();
+        // $superMan  = new SuperHero();
+        // $superGirl = new SuperHero();
         
 
-        echo $superMan->nager();
-        echo "<br/>";
-        echo $superGirl->voler();
+        // echo $superMan->nager();
+        // echo "<br/>";
+        // echo $superGirl->voler();
 
 
 
